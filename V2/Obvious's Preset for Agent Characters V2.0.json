@@ -1,0 +1,618 @@
+{
+    "temperature": 1,
+    "frequency_penalty": 0,
+    "presence_penalty": 0,
+    "top_p": 0.99,
+    "top_k": 0,
+    "top_a": 1,
+    "min_p": 0,
+    "repetition_penalty": 1,
+    "max_context_unlocked": false,
+    "tool_reasoning_mode": "disabled",
+    "openai_max_context": 250000,
+    "openai_max_tokens": 20000,
+    "names_behavior": -1,
+    "send_if_empty": "",
+    "impersonation_prompt": "Change of plans! Write a response as the user's {{user}} now. Match their style from the conversation history so far.",
+    "new_chat_prompt": "",
+    "new_group_chat_prompt": "",
+    "new_example_chat_prompt": "{{trim}}",
+    "continue_nudge_prompt": "Your last message got cut off. Continue writing it. Do not include any parts of the original one. Respond with a direct continuation only.",
+    "bias_preset_selected": "Default (none)",
+    "wi_format": "{0}",
+    "scenario_format": "{{scenario}}",
+    "personality_format": "{{personality}}{{trim}}",
+    "group_nudge_prompt": "",
+    "stream_openai": true,
+    "prompts": [
+        {
+            "name": "┌ Prompt",
+            "system_prompt": true,
+            "role": "system",
+            "content": "{{// Empty for card override. }}{{trim}}",
+            "identifier": "main",
+            "injection_position": 0,
+            "injection_depth": 4,
+            "forbid_overrides": false,
+            "injection_order": 100,
+            "injection_trigger": []
+        },
+        {
+            "name": "| NSFW Prompt",
+            "system_prompt": true,
+            "role": "system",
+            "content": "{{// Not needed, covered by Rules. }}{{trim}}",
+            "identifier": "nsfw",
+            "injection_position": 0,
+            "injection_depth": 4,
+            "forbid_overrides": false,
+            "injection_order": 100,
+            "injection_trigger": []
+        },
+        {
+            "identifier": "dialogueExamples",
+            "name": "Chat Examples",
+            "system_prompt": true,
+            "marker": true
+        },
+        {
+            "name": "└ Jailbreak Prompt",
+            "system_prompt": true,
+            "role": "system",
+            "content": "{{// Again, empty for card override. }}{{trim}}",
+            "identifier": "jailbreak",
+            "forbid_overrides": false,
+            "injection_position": 0,
+            "injection_depth": 4,
+            "injection_order": 100,
+            "injection_trigger": []
+        },
+        {
+            "identifier": "chatHistory",
+            "name": "Chat History",
+            "system_prompt": true,
+            "marker": true
+        },
+        {
+            "identifier": "worldInfoAfter",
+            "name": "|| World Info (After)",
+            "system_prompt": true,
+            "marker": true,
+            "role": "system",
+            "content": "",
+            "injection_position": 0,
+            "injection_depth": 4,
+            "forbid_overrides": false,
+            "injection_order": 100,
+            "injection_trigger": []
+        },
+        {
+            "identifier": "worldInfoBefore",
+            "name": "|| World Info (Before)",
+            "system_prompt": true,
+            "marker": true,
+            "role": "system",
+            "content": "",
+            "injection_position": 0,
+            "injection_depth": 4,
+            "forbid_overrides": false,
+            "injection_order": 100,
+            "injection_trigger": []
+        },
+        {
+            "identifier": "enhanceDefinitions",
+            "role": "system",
+            "name": "| Enhance Definitions",
+            "content": "{{// Same as above. }}{{trim}}",
+            "system_prompt": true,
+            "marker": false,
+            "injection_position": 0,
+            "injection_depth": 4,
+            "forbid_overrides": false,
+            "injection_order": 100,
+            "injection_trigger": []
+        },
+        {
+            "identifier": "charDescription",
+            "name": "Description with AI Agent Guidelines",
+            "system_prompt": true,
+            "marker": true,
+            "role": "system",
+            "content": "",
+            "injection_position": 0,
+            "injection_depth": 4,
+            "forbid_overrides": false,
+            "injection_order": 100,
+            "injection_trigger": []
+        },
+        {
+            "identifier": "charPersonality",
+            "name": "|| Personality",
+            "system_prompt": true,
+            "marker": true,
+            "role": "system",
+            "content": "",
+            "injection_position": 0,
+            "injection_depth": 4,
+            "forbid_overrides": false,
+            "injection_order": 100,
+            "injection_trigger": []
+        },
+        {
+            "identifier": "scenario",
+            "name": "|| Scenario",
+            "system_prompt": true,
+            "marker": true,
+            "role": "system",
+            "content": "",
+            "injection_position": 0,
+            "injection_depth": 4,
+            "forbid_overrides": false,
+            "injection_order": 100,
+            "injection_trigger": []
+        },
+        {
+            "identifier": "personaDescription",
+            "name": "|| Persona",
+            "system_prompt": true,
+            "marker": true,
+            "role": "system",
+            "content": "",
+            "injection_position": 0,
+            "injection_depth": 4,
+            "forbid_overrides": false,
+            "injection_order": 100,
+            "injection_trigger": []
+        },
+        {
+            "identifier": "2d052896-514b-46da-9d1b-2ca05dca2d66",
+            "system_prompt": false,
+            "enabled": false,
+            "marker": false,
+            "name": "|┎ <setting>",
+            "role": "system",
+            "content": "<setting>",
+            "injection_position": 0,
+            "injection_depth": 4,
+            "forbid_overrides": false,
+            "injection_order": 100,
+            "injection_trigger": []
+        },
+        {
+            "identifier": "95c1f757-ee53-4656-bc16-90cb51b2328b",
+            "system_prompt": false,
+            "enabled": false,
+            "marker": false,
+            "name": "|┖ </setting>",
+            "role": "system",
+            "content": "</setting>",
+            "injection_position": 0,
+            "injection_depth": 4,
+            "forbid_overrides": false,
+            "injection_order": 100,
+            "injection_trigger": []
+        },
+        {
+            "identifier": "05f596ff-ceef-4751-b90c-8d27bc296ba3",
+            "system_prompt": false,
+            "enabled": false,
+            "marker": false,
+            "name": "|┖ </protagonist>",
+            "role": "system",
+            "content": "</protagonist>",
+            "injection_position": 0,
+            "injection_depth": 4,
+            "forbid_overrides": false,
+            "injection_order": 100,
+            "injection_trigger": []
+        },
+        {
+            "identifier": "4053badc-3ae3-4f4e-8667-2a4b14d6a734",
+            "system_prompt": false,
+            "enabled": false,
+            "marker": false,
+            "name": "|┖ </characters>",
+            "role": "system",
+            "content": "</characters>",
+            "injection_position": 0,
+            "injection_depth": 4,
+            "forbid_overrides": false,
+            "injection_order": 100,
+            "injection_trigger": []
+        },
+        {
+            "identifier": "cf57d752-9196-41bb-876a-03059c57b357",
+            "system_prompt": false,
+            "enabled": false,
+            "marker": false,
+            "name": "|┎ <scenario>",
+            "role": "system",
+            "content": "<scenario>",
+            "injection_position": 0,
+            "injection_depth": 4,
+            "forbid_overrides": false,
+            "injection_order": 100,
+            "injection_trigger": []
+        },
+        {
+            "identifier": "93f9bb16-0510-466e-890f-1f50832acc9b",
+            "system_prompt": false,
+            "enabled": false,
+            "marker": false,
+            "name": "|┖ </scenario>",
+            "role": "system",
+            "content": "</scenario>",
+            "injection_position": 0,
+            "injection_depth": 4,
+            "forbid_overrides": false,
+            "injection_order": 100,
+            "injection_trigger": []
+        },
+        {
+            "identifier": "1a5ccb5f-ddf7-4647-a8d4-791626baf0de",
+            "system_prompt": false,
+            "enabled": false,
+            "marker": false,
+            "name": "|┎ <protagonist>",
+            "role": "system",
+            "content": "<protagonist name=\"{{user}}\" player=\"user\">",
+            "injection_position": 0,
+            "injection_depth": 4,
+            "injection_order": 100,
+            "forbid_overrides": false,
+            "injection_trigger": []
+        },
+        {
+            "identifier": "83945990-3802-47ac-a0a1-86669ff32073",
+            "system_prompt": false,
+            "enabled": false,
+            "marker": false,
+            "name": "|┎ <characters>",
+            "role": "system",
+            "content": "<characters names=\"{{group}}\" player=\"you\">",
+            "injection_position": 0,
+            "injection_depth": 4,
+            "injection_order": 100,
+            "forbid_overrides": false,
+            "injection_trigger": []
+        },
+        {
+            "identifier": "aec5b0c8-c792-4245-ab95-22e947cf24d4",
+            "system_prompt": false,
+            "enabled": false,
+            "marker": false,
+            "name": "⌜ <history>",
+            "role": "system",
+            "content": "Here is the content history:\n<history>",
+            "injection_position": 0,
+            "injection_depth": 4,
+            "injection_order": 100,
+            "injection_trigger": [],
+            "forbid_overrides": false
+        },
+        {
+            "identifier": "857fd06f-2425-4406-8412-6a5c280a5249",
+            "system_prompt": false,
+            "enabled": false,
+            "marker": false,
+            "name": "⌞ </history>",
+            "role": "system",
+            "content": "</history>\n",
+            "injection_position": 1,
+            "injection_depth": 1,
+            "injection_order": 99,
+            "injection_trigger": [],
+            "forbid_overrides": false
+        },
+        {
+            "identifier": "8e8d7718-4377-49d5-b3c2-70899bfa8f14",
+            "system_prompt": false,
+            "enabled": false,
+            "marker": false,
+            "name": "⌜ <message>",
+            "role": "system",
+            "content": "\nHere is the last message in the conversation:\n<message>",
+            "injection_position": 1,
+            "injection_depth": 1,
+            "injection_order": 101,
+            "injection_trigger": [],
+            "forbid_overrides": false
+        },
+        {
+            "identifier": "d7288abb-29f5-42a5-8042-7c250cbd1c25",
+            "system_prompt": false,
+            "enabled": false,
+            "marker": false,
+            "name": "⌞ </message>",
+            "role": "system",
+            "content": "</message>",
+            "injection_position": 1,
+            "injection_depth": 0,
+            "injection_order": 99,
+            "injection_trigger": [],
+            "forbid_overrides": false
+        },
+        {
+            "identifier": "64072fc1-9284-444c-8348-10b8478b99dd",
+            "system_prompt": false,
+            "enabled": false,
+            "marker": false,
+            "name": "┌ <lore>",
+            "role": "system",
+            "content": "Here is the lore for the interaction you should reference, alongside your own knowledge:\n<lore>",
+            "injection_position": 0,
+            "injection_depth": 4,
+            "injection_order": 100,
+            "injection_trigger": [],
+            "forbid_overrides": false
+        },
+        {
+            "identifier": "1cc6303c-28ee-455f-a966-ab84a8b7b7c6",
+            "system_prompt": false,
+            "enabled": false,
+            "marker": false,
+            "name": "└ </lore>",
+            "role": "system",
+            "content": "</lore>",
+            "injection_position": 0,
+            "injection_depth": 4,
+            "injection_order": 100,
+            "injection_trigger": [],
+            "forbid_overrides": false
+        },
+        {
+            "identifier": "3f1d7de3-a9a1-4f66-aae0-3b1f6f913aad",
+            "system_prompt": false,
+            "enabled": false,
+            "marker": false,
+            "name": "∑ Summary",
+            "role": "user",
+            "content": "{{// For all the folks out there using the summarization extension. }}{{trim}}\nHere is a summary of past events from before the chat history. It could be empty if there are none:\n<summary>\n{{summary}}{{trim}}\n</summary>",
+            "injection_position": 0,
+            "injection_depth": 4,
+            "injection_order": 100,
+            "injection_trigger": [],
+            "forbid_overrides": false
+        },
+        {
+            "identifier": "5d6fc001-db22-43d5-afd8-4236caa7f6fb",
+            "system_prompt": false,
+            "enabled": false,
+            "marker": false,
+            "name": "⚲ Last Message",
+            "role": "system",
+            "content": "{{// Empty, this part of the prompt is here to help visualize where the last message will be. }}{{trim}}",
+            "injection_position": 0,
+            "injection_depth": 1,
+            "injection_order": 100,
+            "injection_trigger": [],
+            "forbid_overrides": false
+        },
+        {
+            "identifier": "542f8e7f-0316-4505-b14a-d772a04f17a7",
+            "system_prompt": false,
+            "enabled": false,
+            "marker": false,
+            "name": "⌜ <example>",
+            "role": "system",
+            "content": "\nHere is an example of how to respond, outside the conversation context. It can be empty if found unnecessary:\n<example>",
+            "injection_position": 0,
+            "injection_depth": 4,
+            "injection_order": 100,
+            "injection_trigger": [],
+            "forbid_overrides": false
+        },
+        {
+            "identifier": "7bee04e9-e076-49a6-bc9d-78a2e04c21e5",
+            "system_prompt": false,
+            "enabled": false,
+            "marker": false,
+            "name": "⌞ </example>",
+            "role": "system",
+            "content": "</example>",
+            "injection_position": 0,
+            "injection_depth": 4,
+            "injection_order": 100,
+            "injection_trigger": [],
+            "forbid_overrides": false
+        }
+    ],
+    "prompt_order": [
+        {
+            "character_id": 100000,
+            "order": [
+                {
+                    "identifier": "main",
+                    "enabled": true
+                },
+                {
+                    "identifier": "worldInfoBefore",
+                    "enabled": true
+                },
+                {
+                    "identifier": "charDescription",
+                    "enabled": true
+                },
+                {
+                    "identifier": "charPersonality",
+                    "enabled": true
+                },
+                {
+                    "identifier": "scenario",
+                    "enabled": true
+                },
+                {
+                    "identifier": "enhanceDefinitions",
+                    "enabled": false
+                },
+                {
+                    "identifier": "nsfw",
+                    "enabled": true
+                },
+                {
+                    "identifier": "worldInfoAfter",
+                    "enabled": true
+                },
+                {
+                    "identifier": "dialogueExamples",
+                    "enabled": true
+                },
+                {
+                    "identifier": "chatHistory",
+                    "enabled": true
+                },
+                {
+                    "identifier": "jailbreak",
+                    "enabled": true
+                }
+            ]
+        },
+        {
+            "character_id": 100001,
+            "order": [
+                {
+                    "identifier": "64072fc1-9284-444c-8348-10b8478b99dd",
+                    "enabled": true
+                },
+                {
+                    "identifier": "2d052896-514b-46da-9d1b-2ca05dca2d66",
+                    "enabled": true
+                },
+                {
+                    "identifier": "worldInfoBefore",
+                    "enabled": true
+                },
+                {
+                    "identifier": "worldInfoAfter",
+                    "enabled": true
+                },
+                {
+                    "identifier": "95c1f757-ee53-4656-bc16-90cb51b2328b",
+                    "enabled": true
+                },
+                {
+                    "identifier": "83945990-3802-47ac-a0a1-86669ff32073",
+                    "enabled": false
+                },
+                {
+                    "identifier": "charPersonality",
+                    "enabled": false
+                },
+                {
+                    "identifier": "4053badc-3ae3-4f4e-8667-2a4b14d6a734",
+                    "enabled": false
+                },
+                {
+                    "identifier": "1a5ccb5f-ddf7-4647-a8d4-791626baf0de",
+                    "enabled": true
+                },
+                {
+                    "identifier": "personaDescription",
+                    "enabled": true
+                },
+                {
+                    "identifier": "05f596ff-ceef-4751-b90c-8d27bc296ba3",
+                    "enabled": true
+                },
+                {
+                    "identifier": "cf57d752-9196-41bb-876a-03059c57b357",
+                    "enabled": false
+                },
+                {
+                    "identifier": "scenario",
+                    "enabled": false
+                },
+                {
+                    "identifier": "93f9bb16-0510-466e-890f-1f50832acc9b",
+                    "enabled": false
+                },
+                {
+                    "identifier": "1cc6303c-28ee-455f-a966-ab84a8b7b7c6",
+                    "enabled": true
+                },
+                {
+                    "identifier": "main",
+                    "enabled": true
+                },
+                {
+                    "identifier": "nsfw",
+                    "enabled": true
+                },
+                {
+                    "identifier": "enhanceDefinitions",
+                    "enabled": true
+                },
+                {
+                    "identifier": "3f1d7de3-a9a1-4f66-aae0-3b1f6f913aad",
+                    "enabled": false
+                },
+                {
+                    "identifier": "542f8e7f-0316-4505-b14a-d772a04f17a7",
+                    "enabled": false
+                },
+                {
+                    "identifier": "dialogueExamples",
+                    "enabled": false
+                },
+                {
+                    "identifier": "7bee04e9-e076-49a6-bc9d-78a2e04c21e5",
+                    "enabled": false
+                },
+                {
+                    "identifier": "aec5b0c8-c792-4245-ab95-22e947cf24d4",
+                    "enabled": true
+                },
+                {
+                    "identifier": "chatHistory",
+                    "enabled": true
+                },
+                {
+                    "identifier": "857fd06f-2425-4406-8412-6a5c280a5249",
+                    "enabled": true
+                },
+                {
+                    "identifier": "jailbreak",
+                    "enabled": true
+                },
+                {
+                    "identifier": "8e8d7718-4377-49d5-b3c2-70899bfa8f14",
+                    "enabled": true
+                },
+                {
+                    "identifier": "5d6fc001-db22-43d5-afd8-4236caa7f6fb",
+                    "enabled": true
+                },
+                {
+                    "identifier": "d7288abb-29f5-42a5-8042-7c250cbd1c25",
+                    "enabled": true
+                },
+                {
+                    "identifier": "charDescription",
+                    "enabled": true
+                }
+            ]
+        }
+    ],
+    "assistant_prefill": "",
+    "assistant_impersonation": "",
+    "use_sysprompt": true,
+    "squash_system_messages": true,
+    "media_inlining": false,
+    "inline_image_quality": "high",
+    "continue_prefill": false,
+    "continue_postfix": " ",
+    "function_calling": false,
+    "tool_call_recurse_limit": 5,
+    "show_thoughts": true,
+    "reasoning_effort": "auto",
+    "verbosity": "auto",
+    "enable_web_search": false,
+    "seed": -1,
+    "n": 1,
+    "request_images": false,
+    "request_image_aspect_ratio": "",
+    "request_image_resolution": "",
+    "extensions": {
+        "regex_scripts": []
+    }
+}
