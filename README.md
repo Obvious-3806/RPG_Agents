@@ -1,5 +1,5 @@
 # Obvious's RPG Agents
-This is my preset and character cards to run a long form TTRPG in Silly Tavern.
+This is my preset and character cards to run a long form RPG in Silly Tavern.
 <img width="424" height="424" alt="Obvious Agents sq" src="https://github.com/user-attachments/assets/dab5a776-0384-445c-827f-8235a1628080" />
 
 
